@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Button, Card, CardHeader, CardImg, CardBody, CardText } from 'reactstrap';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
+import SearchForm from "./SearchForm";
 
 
 export default function CharacterList(props) {
@@ -25,31 +26,16 @@ export default function CharacterList(props) {
   //     });
 
   // }, [apiURL]);
-  console.log("character-list", props.character)
+  // console.log("character-list", props.character)
+  // console.log("Search form in CharacterList", < SearchForm />)
+  if (!props.character) {
+    return (<div>Loading</div>)
+  }
   return (
 
     <section className="character-list">
-      <h2 className="char-card">{props.character.map(char => {
-        return (
-          <Link to={`/character-list/${char.id}`} key={char.id} >
-            <Card >
-              <CardHeader className="text-center">
-                <h1>{char.name}</h1>
-              </CardHeader>
-              {/* <CardImg src={char.image} /> */}
-              <CardBody>
-                <CardText>Gender: {char.gender}</CardText>
-                <CardText>Species: {char.species}</CardText>
-                <CardText>Status: {char.status}</CardText>
-                <CardText>Created: {char.created}</CardText>
-                <CardText>Origin: {char.origin.name}</CardText>
-                <CardText>Featured: {char.episode.length} episodes</CardText>
-              </CardBody>
-            </Card>
-          </Link>
+      <SearchForm characters={props.character} />
 
-        )
-      })}</h2>
     </section >
   );
 }

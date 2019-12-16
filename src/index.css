@@ -37,3 +37,8 @@ main {
 header h1 {
   text-align: center;
 }
+
+.char-card a{
+  text-decoration: none;
+  background: red;
+}
