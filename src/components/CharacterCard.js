@@ -1,46 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card, CardHeader, CardImg, CardBody, CardText, CardLink } from 'reactstrap';
-import axios from 'axios';
+import React from "react";
+import { Button, Card, CardHeader, CardImg, CardBody, CardText } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-export default function CharacterCard({ character, match }) {
-  console.log("props charc card", character)
-
-  const id = match.params.id;
-  const characterID = character.filter(char => char.id === Number(id))[0];
-  console.log("characterID", characterID)
-
-  const [apiURL, setApiURL] = useState('https://rickandmortyapi.com/api/character/?name=rick');
-  const [apiData, setApiData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(apiURL)
-      .then(response => {
-        console.log("apiData", response)
-        setApiData(response.data.results)
-      })
-      .catch(error => {
-        console.log("Something went wrong", error)
-      });
-
-  }, [apiURL]);
-
+export default function CharacterCard(props) {
+  console.log("characterCard", props);
+  const id = props.match.params.id;
+  const character = props.character.filter(char => char.id === Number(id))[0];
+  // console.log("characterId", characterId)
 
   return (
-    "hello"
-    //   < Card >
-    //   <CardHeader className="text-center">
-    //     <h1>{characterId.name}</h1>
-    //   </CardHeader>
-    //     {/* <CardImg src={char.image} /> */ }
-    // {/* <CardBody>
-    //   <CardText>Gender: {characterId.gender}</CardText>
-    //   <CardText>Species: {characterId.species}</CardText>
-    //   <CardText>Status: {characterId.status}</CardText>
-    //   <CardText>Created: {characterId.created}</CardText>
-    //   <CardText>Origin: {characterId.origin.name}</CardText>
-    //   <CardText>Featured: {characterId.episode.length} episodes</CardText>
-    // </CardBody> */}
-    //   </Card >
+    <div className="character-card" >
+      < Card >
+        <CardHeader className="text-center">
+          <h1>{character.name}</h1>
+        </CardHeader>
+        <CardImg src={character.image} />
+        <CardBody>
+          <CardText><span>Gender:</span> {character.gender}</CardText>
+          <CardText><span>Species:</span> {character.species}</CardText>
+          <CardText><span>Status:</span> {character.status}</CardText>
+          <CardText><span>Created:</span> {character.created}</CardText>
+          <CardText><span>Origin:</span> {character.origin.name}</CardText>
+          <CardText><span>Featured:</span> {character.episode.length} episodes</CardText>
+          <Link to="/characters-list"><Button color="info">Go back</Button></Link>
+        </CardBody>
+      </Card >
+    </div>
   )
 }
