@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: Client-side routing doesn't required to fully reload the page. It supports lazy loading and rich interactions. It's easier to deploy and to host. 
 
 ## Project Set Up
 

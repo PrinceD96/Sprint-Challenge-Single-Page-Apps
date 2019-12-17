@@ -14,6 +14,10 @@ main {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
+span{
+  font-weight: bold;
+}
+
 .grid-view {
   display: flex;
   flex-wrap: wrap;
@@ -36,4 +40,85 @@ main {
 
 header h1 {
   text-align: center;
+}
+
+.welcome-page {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+ }
+
+.welcome-page img {
+  width: 80%;
+}
+
+form {
+  /* border: 2px solid blue; */
+  margin: 50px auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content:center;
+  align-items: center;
+  width: 96%;
+}
+
+label{
+  font-weight: bold;
+}
+input {
+  border: 2px dashed black; 
+  border-radius: 3px; 
+  width: 75%;
+}
+
+.character-list{
+  text-decoration: none;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.character {
+  width: 300px;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  height: 550px;
+  margin-bottom: 30px;
+  overflow: auto;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.character img {
+  /* width: 200px; */
+  height: 250px;
+}
+
+.character:hover{
+  box-shadow: 0 -3px 0 #000000, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  transform: translateY(-8px);
+}
+
+.link:hover{
+  text-decoration: none;
+  color: black;
+  
+}
+
+.link {
+  
+  color: black;
+}
+
+.character-card {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.character-card img {
+  width: 100%;
+}
+
+.character-card button {
+  width: 100%;
 }
